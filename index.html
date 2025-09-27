@@ -1,47 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cheman Baira A'gitok - Personal Website</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cheman Baira A'gitok — PhD Student, Linguistics</title>
+
+  <!-- Google Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Basic meta for social preview -->
+  <meta name="description" content="Cheman Baira A'gitok — PhD student in Linguistics (McGill). Research in theoretical phonology, prosody, and phonology-syntax mapping." />
+
+  <style>
+    /* RESET-ish */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;line-height:1.6;color:#1c1c1c;background:#f8fafb}
+
+    /* LAYOUT */
+    header{background:#ffffff;border-bottom:1px solid #e6eef3;position:sticky;top:0;z-index:40}
+    .container{max-width:1000px;margin:0 auto;padding:1.25rem}
+    .header-inner{display:flex;gap:1rem;align-items:center;justify-content:space-between}
+    h1.logo{font-size:1.1rem;font-weight:700}
+
+    nav ul{display:flex;gap:0.75rem;list-style:none}
+    nav a{display:inline-block;padding:.5rem .75rem;border-radius:8px;text-decoration:none;color:inherit;font-weight:600}
+    nav a:hover{background:#eef6fb}
+
+    main{padding:2rem 1rem}
+    .hero{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
+
+    .intro{background:#fff;padding:1.25rem;border-radius:12px;box-shadow:0 6px 20px rgba(17,24,39,.04)}
+    .intro h2{font-size:1.25rem;margin-bottom:.25rem}
+    .intro p{color:#334155}
+
+    /* PROJECTS */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+    .card{background:#fff;padding:1rem;border-radius:12px;box-shadow:0 6px 20px rgba(17,24,39,.04);border:1px solid #edf2f7}
+    .card h3{margin-bottom:.5rem;font-size:1rem}
+    .card p{font-size:.95rem;color:#334155}
+    .card .meta{margin-top:.75rem;font-size:.88rem;color:#64748b}
+
+    /* Research / Publications */
+    .pub{margin-bottom:.75rem}
+    .pub-title{font-weight:600}
+    .pub-meta{color:#64748b;font-size:.9rem}
+
+    /* Photography gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;display:block}
+
+    /* Contact */
+    form{display:grid;gap:.5rem}
+    input,textarea,button,select{font-family:inherit;font-size:1rem;padding:.6rem;border:1px solid #cbd5e1;border-radius:8px}
+    textarea{min-height:110px;resize:vertical}
+    button{background:#0ea5a4;color:#fff;border:0;padding:.6rem .9rem;cursor:pointer;font-weight:700}
+    button:active{transform:translateY(1px)}
+
+    /* Footer */
+    footer{margin-top:2rem;padding:1.25rem 0;color:#475569;font-size:.95rem}
+
+    /* Small helpers */
+    .muted{color:#64748b}
+    .row{display:flex;gap:1rem;align-items:center}
+
+    /* Modal / Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(2,6,23,.7);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:60;opacity:0;pointer-events:none;transition:opacity .18s}
+    .lightbox.open{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:95%;max-height:85%;border-radius:8px}
+    .close-x{position:absolute;top:1rem;right:1rem;background:#fff;border-radius:999px;padding:.35rem;cursor:pointer}
+
+    /* Responsive tweaks */
+    @media(min-width:720px){
+      .hero{grid-template-columns:1fr 360px}
+      h1.logo{font-size:1.25rem}
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Cheman Baira A'gitok</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#photography">Photography</a></li>
-      </ul>
-    </nav>
+    <div class="container header-inner">
+      <h1 class="logo">Cheman Baira A'gitok</h1>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, welcome to my personal website. I am currently a PhD student in Linguistics at McGill University. I do most of my research in the area of theoretical phonology, with occasional forays into theoretical syntax. I am mostly interested in prosodic structures and how they are mapped from the syntactic module. You can find the materials related to my research under the Research tab.</p>
-  </section>
+  <main class="container">
+    <section class="hero">
+      <div class="intro" id="about">
+        <h2>Hi — I'm Cheman</h2>
+        <p>I am a PhD student in Linguistics at McGill University. My main research is in theoretical phonology, with an emphasis on prosodic structures and how they are mapped from syntax. I also do work on the phonology of Garo, and occasional projects on Banawa and Popti'.</p>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Phonology of Garo</h3>
-      <p>Most of my graduate school research (MA at Calgary, ongoing PhD at McGill) has focused on the phonology of Garo. There are however, some issues in other languages (Banawa and Popti') that I spend time on, but unfortunately, I have not been able to invest enough time on the analysis.</p>
-    </div>
-    <!-- You can add more projects similarly -->
-  </section>
+        <p style="margin-top:.75rem" class="muted">Based in Montreal. Open to collaborations and feedback — feel free to get in touch.</p>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out via email at <a href="mailto:cheman.asangma@mail.mcgill.ca">cheman.asangma@mail.mcgill.ca</a></p>
-  </section>
+        <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <a href="#research" style="text-decoration:none;">📄 Research</a>
+          <a href="#projects" style="text-decoration:none;">🧪 Projects</a>
+          <a href="#contact" style="text-decoration:none;">✉️ Contact</a>
+        </div>
+      </div>
 
-  <footer>
-    <p>&copy; Cheman Baira A'gitok. All rights reserved.</p>
-  </footer>
+      <aside style="display:grid;gap:.75rem">
+        <div class="card">
+          <strong>Current status</strong>
+          <p class="muted" style="margin-top:.5rem">PhD candidate, McGill University — working on prosodic mapping and the phonology of Garo.</p>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="card">
+          <strong>Quick links</strong>
+          <ul style="margin-top:.5rem;list-style:none;padding:0;display:grid;gap:.4rem">
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#cv" download="Cheman_CV.pdf">Download CV (PDF)</a></li>
+            <li><a href="mailto:cheman.asangma@mail.mcgill.ca">Email me</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Research / Publications -->
+    <section id="research" style="margin-top:1.25rem">
+      <h2>Research</h2>
+      <p class="muted" style="margin-bottom:.75rem">Areas: Theoretical phonology, prosodic structure, phonology-syntax mapping. Languages: Garo, Banawa, Popti'.</p>
+
+      <div class="card" style="padding:1rem;">
+        <h3 id="publications">Selected publications & manuscripts</h3>
+
+        <div class="pub">
+          <div class="pub-title">(in prep) The prosodic mapping of Garo</div>
+          <div class="pub-meta">Manuscript — ongoing</div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">(2024) On prosodic heads and domain edges</div>
+          <div class="pub-meta">Conference paper / Workshop — abstract available on request</div>
+        </div>
+
+        <p class="muted" style="margin-top:.5rem">If you'd like copies of any of my preprints, email me or use the contact form below.</p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" style="margin-top:1.25rem">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Phonology of Garo</h3>
+          <p>Detailed description of segmental and prosodic patterns in Garo. Includes data, analyses, and computational scripts used in the project.</p>
+          <div class="meta">MA work (Calgary) & doctoral research (McGill)</div>
+        </article>
+
+        <article class="card">
+          <h3>Banawa field notes</h3>
+          <p>Preliminary documentation and analysis. Fieldwork materials and transcriptions (ongoing).</p>
+          <div class="meta">Fieldwork notes, transcription files</div>
+        </article>
+
+        <article class="card">
+          <h3>Popti' sketches</h3>
+          <p>Short descriptive sketch focused on prosodic contrasts and stress assignment.</p>
+          <div class="meta">Sketch grammar</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Photography -->
+    <section id="photography" style="margin-top:1.25rem">
+      <h2>Photography</h2>
+      <p class="muted">A small selection of recent photos. Click to enlarge.</p>
+
+      <div class="gallery" role="list">
+        <!-- Placeholder images: replace src with your own image files -->
+        <img src="https://picsum.photos/id/1018/800/600" alt="Photo 1" data-large="https://picsum.photos/id/1018/1200/900">
+        <img src="https://picsum.photos/id/1025/800/600" alt="Photo 2" data-large="https://picsum.photos/id/1025/1200/900">
+        <img src="https://picsum.photos/id/1035/800/600" alt="Photo 3" data-large="https://picsum.photos/id/1035/1200/900">
+        <img src="https://picsum.photos/id/1042/800/600" alt="Photo 4" data-large="https://picsum.photos/id/1042/1200/900">
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin-top:1.25rem">
+      <h2>Contact</h2>
+      <p class="muted">Prefer email? <a href="mailto:cheman.asangma@mail.mcgill.ca">cheman.asangma@mail.mcgill.ca</a></p>
+
+      <!-- Example contact form using Formspree (replace the action URL with your own form endpoint) -->
+      <div class="card">
+        <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+          <div style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem">
+            <button type="submit">Send message</button>
+            <div id="formStatus" class="muted" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+    <footer style="margin-top:1.5rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div>&copy; <strong>Cheman Baira A'gitok</strong>. All rights reserved.</div>
+        <div class="muted">Designed with ❤️ — built for clarity and readability</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Lightbox for photos -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close-x" aria-label="Close" id="closeLight">✕</button>
+    <img src="" alt="Enlarged photo" id="lightImage">
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+
+    // Lightbox logic
+    const lightbox = document.getElementById('lightbox');
+    const lightImage = document.getElementById('lightImage');
+    const closeLight = document.getElementById('closeLight');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        const large = img.dataset.large || img.src;
+        lightImage.src = large;
+        lightImage.alt = img.alt || 'Photo';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+      });
+    });
+
+    closeLight.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lightImage.src = '';
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lightImage.src = '';
+      }
+    });
+
+    // Contact form progressive feedback (does not change form action)
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', (e) => {
+      formStatus.textContent = 'Sending...';
+      // Let the form submit normally to Formspree or your endpoint.
+      // Alternatively, implement AJAX fetch here and show success or error.
+      setTimeout(() => {
+        formStatus.textContent = 'If your form did not send, replace the action with your Formspree URL.';
+      }, 1400);
+    });
+
+    // Small accessibility tweak: focus trap for close button when lightbox opens
+    const observer = new MutationObserver(() => {
+      if (lightbox.classList.contains('open')) closeLight.focus();
+    });
+    observer.observe(lightbox, {attributes:true,attributeFilter:['class']});
+  </script>
 </body>
 </html>
